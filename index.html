@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GradeGlow — High School Grade Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="background-glow" aria-hidden="true"></div>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="badge">No Login Needed</p>
+        <h1>GradeGlow</h1>
+        <p>
+          A premium grade calculator for high school students. Add your subjects,
+          weights, and scores to instantly track your final grade.
+        </p>
+      </header>
+
+      <section class="card input-card" aria-labelledby="grade-form-title">
+        <h2 id="grade-form-title">Add Assignment</h2>
+        <form id="assignment-form" class="form-grid">
+          <label>
+            Subject
+            <input id="subject" name="subject" type="text" placeholder="Math" required />
+          </label>
+
+          <label>
+            Assignment
+            <input
+              id="assignment"
+              name="assignment"
+              type="text"
+              placeholder="Unit Test 3"
+              required
+            />
+          </label>
+
+          <label>
+            Score (%)
+            <input
+              id="score"
+              name="score"
+              type="number"
+              min="0"
+              max="100"
+              step="0.01"
+              placeholder="88"
+              required
+            />
+          </label>
+
+          <label>
+            Weight (%)
+            <input
+              id="weight"
+              name="weight"
+              type="number"
+              min="0"
+              max="100"
+              step="0.01"
+              placeholder="20"
+              required
+            />
+          </label>
+
+          <button type="submit" class="btn-primary">Add Grade</button>
+        </form>
+      </section>
+
+      <section class="card" aria-labelledby="summary-title">
+        <div class="summary-head">
+          <h2 id="summary-title">Grade Summary</h2>
+          <button id="clear-btn" class="btn-secondary" type="button">Clear All</button>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat">
+            <p>Weighted Grade</p>
+            <strong id="weighted-grade">0.00%</strong>
+          </article>
+          <article class="stat">
+            <p>Letter Grade</p>
+            <strong id="letter-grade">N/A</strong>
+          </article>
+          <article class="stat">
+            <p>Total Weight</p>
+            <strong id="total-weight">0.00%</strong>
+          </article>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>Assignment</th>
+                <th>Score</th>
+                <th>Weight</th>
+                <th>Contribution</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="grade-list">
+              <tr class="empty-row">
+                <td colspan="6">No grades added yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="weight-warning" class="warning" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
